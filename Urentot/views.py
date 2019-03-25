@@ -3,4 +3,10 @@ from django.http import HttpResponse
 from .models import End
 
 def index(request):
-    return render(request, 'index.html', context)
+    
+    exit = End.date_now.value_to_string
+    
+    context = {
+        'exit': exit
+    }
+    return render(request, 'detail.html', context)
